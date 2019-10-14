@@ -1,2 +1,28 @@
-<h1>eerste titel </h1>
-<h2>tweede titel </h2>
+<script>
+	function mijnfunctie(){
+		//document.getElementById("eenid").innerHTML = "jojo";
+		var getal1 = document.getElementById("eerstegetal").value
+		var getal2 = document.getElementById("tweedegetal").value
+		document.getElementById("eenid").innerHTML=getal1*getal2;
+}
+
+</script>
+
+
+<style>
+	h1{
+	background-color:red;
+}
+	
+
+</style>
+
+<h1 onclick="mijnfunctie()" align="center">klik hier om te berekenen!</h1>
+<h1 id="eenid"></h1>
+<!--<h2>tweede titel </h2>
+<h1 id="eenid">titel met id</h1>
+<textarea style ="color :yellow">hier gaan we</textarea>-->
+<h5> eerste getal:</h5>
+<input type = text id=eerstegetal>
+<h5> tweede getal:</h5>
+<input type = text id=tweedegetal> 
