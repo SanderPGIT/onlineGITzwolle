@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<style>
+			td.water{
+				background-color:gray;
+			}
+			.boot{
+				background-color:gray;
+			}
+		</style>
+		<script>
+			var count = 0;
+			function schieten( bootofwater, vakje ){
+					console.log(vakje.style.backgroundColor);
+					if (vakje.style.backgroundColor =='blue' | vakje.style.backgroundColor == 'red'){
+						var raak = document.getElementById("commentaar").innerHTML = "dit veldvak is al bespeeld, selecteer ander veld"
+					} else{
+						if(bootofwater == 'water'){
+							vakje.style.backgroundColor='blue';
+							var raak= document.getElementById("commentaar").innerHTML = "Plons"
+						}else{		
+							vakje.style.backgroundColor='red';
+							if(count==0){
+								var raak= document.getElementById("commentaar").innerHTML = "Raak"
+								count++;
+							}else{
+								var raak= document.getElementById("commentaar").innerHTML = "Boot is gezonken"
+					}
+					}
+					}
+			}
+		</script>
+
+	</head>
+	<body>
+		<table border =1>
+				<tr>
+					<td class=water onclick="schieten('water',this)">veld1</td>
+					<td class=boot onclick="schieten('boot',this)">veld2</td>
+					<td class=boot onclick="schieten('boot',this)">veld3 </td>
+					<td class=water onclick="schieten('water',this)">veld4</td>
+				</tr>
+				
+		</table>
+		<div id=commentaar></div>
+	</body>
+</html>

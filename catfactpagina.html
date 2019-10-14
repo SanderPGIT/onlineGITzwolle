@@ -1,0 +1,24 @@
+<script>
+	function kattenfeit(){
+		const catfact = new XMLHttpRequest();
+		catfact.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var handler =document.getElementById("cat").innerHTML= catfact.responseText;
+				}
+			}
+			catfact.open("GET", 'https://catfact.ninja/fact',true);
+			catfact.send();
+	}
+	
+
+</script>
+
+
+<style>
+	h1{
+	background-color:red;
+}
+</style>
+<h1>kattenfeiten pagina</h1>
+<input type = "button" onclick=kattenfeit() value= "klik hier voor een kattenfeit">
+<div id="cat"></div>
