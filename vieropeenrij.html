@@ -1,69 +1,176 @@
 <html>
 	<head>
 		<style>
+			
 		</style>
 		<script>
+			var count =0
+			function tableindexend(vakje){
+				var table = document.getElementById("tab1");
+				for (var i=0; i<table.rows.length; i++){
+					for (var j=0; j<table.rows[0].cells.length; j++){
+						col = table.rows[i].cells[j];
+						if (col == vakje){
+							kolomgummen(i,j);
+						}
+					}	
+				}
+			}
+			
+			function kolomgummen(rijindex,colomindex){
+				var table = document.getElementById("tab1");
+				for (var i=0; i<table.rows.length; i++){
+					for (var j=0; j<table.rows[0].cells.length; j++){
+						if(j==colomindex){
+							if(table.rows[i].cells[j].style.backgroundColor == 'yellow' | table.rows[i].cells[j].style.backgroundColor == 'green'){
+								table.rows[i].cells[j].style.backgroundColor = 'white';
+							}
+						}
+					}
+				}	
+			}
+			
+			
+			function tableindex(vakje){
+				var table = document.getElementById("tab1");
+				for (var i=0; i<table.rows.length; i++){
+					for (var j=0; j<table.rows[0].cells.length; j++){
+						col = table.rows[i].cells[j];
+						if (col == vakje){
+							var vaknummer= document.getElementById("vaknr").innerHTML ="rij:" + i + " kolom:" +j;
+							kolomkleuren(i,j);
+						}
+					}	
+				}
+			}
+			
+			function kolomkleuren(rijindex,colomindex){
+				var table = document.getElementById("tab1");
+				for (var i=0; i<table.rows.length; i++){
+					for (var j=0; j<table.rows[0].cells.length; j++){
+						if(j==colomindex){
+							if(i==rijindex){
+								if(table.rows[i].cells[j].style.backgroundColor =='blue' ){
+									table.rows[i].cells[j].style.backgroundColor =='blue';
+								}else if(table.rows[i].cells[j].style.backgroundColor =='red'){
+									table.rows[i].cells[j].style.backgroundColor =='red';
+								}else{
+									table.rows[i].cells[j].style.backgroundColor = 'green';
+								}	
+							}else{
+								if(table.rows[i].cells[j].style.backgroundColor =='blue'){
+									table.rows[i].cells[j].style.backgroundColor =='blue';
+								}else if(table.rows[i].cells[j].style.backgroundColor =='red'){
+									table.rows[i].cells[j].style.backgroundColor =='red';
+								}else{
+									table.rows[i].cells[j].style.backgroundColor = 'yellow';
+								}
+							}
+						}
+					}	
+				}
+			}
+
+			function steenwerpen(vakje){
+				var table = document.getElementById("tab1");
+				for (var i=0; i<table.rows.length; i++){
+					for (var j=0; j<table.rows[0].cells.length; j++){
+						col = table.rows[i].cells[j];
+						if (col == vakje){
+							var vaknummer= document.getElementById("vaknr").innerHTML ="rij:" + i + " kolom:" +j;
+							steenkleuren(i,j)
+						}
+					}
+				}
+			}
+			function steenkleuren(rijindex,colomindex){
+				var table = document.getElementById("tab1");
+				for (var i=5; i>=0; i--){
+						if(table.rows[i].cells[colomindex].style.backgroundColor=='blue'| table.rows[i].cells[colomindex].style.backgroundColor =='red'){
+								continue;
+							}else{
+								if (count%2==0){
+									table.rows[i].cells[colomindex].style.backgroundColor='blue';
+									count++;
+									break;
+								}else{
+									table.rows[i].cells[colomindex].style.backgroundColor='red';
+									count++;
+									break;
+								}
+							}
+						}
+					checkspelstatus()	
+					}
+
+			function checkspelstatus(){
+				
+
+			}				
 		</script>
 
 	</head>
 	<body>
-		<table border =1>
+		<table name="speelbord" id='tab1' border=1 >
 			<tr>
-				<td width="100" height="100"></td>
-				<td width="100"></td>
-				<td width="100"></td>
-				<td width="100"></td>
-				<td width="100"></td>
-				<td width="100"></td>
-				<td width="100"></td>
+				<td width="100" height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)" ></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)"onmouseout="tableindexend(this)"></td>
+				<td width="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 			<tr>
-					<td height="100"></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 			<tr>
-					<td height="100"></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 			<tr>
-					<td height="100"></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 			<tr>
-					<td height="100"></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 			<tr>
-					<td height="100"></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
+					<td onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)"></td>
 			</tr>
 					
 
 		</table>
+
+		<div id="vaknr">test</div>
+		<div id="message">message</div>
 	</body>
 </html>
