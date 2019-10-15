@@ -77,7 +77,6 @@
 					for (var j=0; j<table.rows[0].cells.length; j++){
 						col = table.rows[i].cells[j];
 						if (col == vakje){
-							var vaknummer= document.getElementById("vaknr").innerHTML ="rij:" + i + " kolom:" +j;
 							steenkleuren(i,j)
 						}
 					}
@@ -92,10 +91,12 @@
 								if (count%2==0){
 									table.rows[i].cells[colomindex].style.backgroundColor='blue';
 									count++;
+									var bericht= document.getElementById("message").innerHTML ="speler rood is aan de beurt"; 
 									break;
 								}else{
 									table.rows[i].cells[colomindex].style.backgroundColor='red';
 									count++;
+									var bericht= document.getElementById("message").innerHTML ="speler blauw is aan de beurt"; 
 									break;
 								}
 							}
@@ -104,13 +105,14 @@
 					}
 
 			function checkspelstatus(){
-				
+
 
 			}				
 		</script>
 
 	</head>
 	<body>
+		<h1>Speel vier op een rij</h1>
 		<table name="speelbord" id='tab1' border=1 >
 			<tr>
 				<td width="100" height="100" onclick=steenwerpen(this) onmouseover="tableindex(this)" onmouseout="tableindexend(this)" ></td>
@@ -171,6 +173,6 @@
 		</table>
 
 		<div id="vaknr">test</div>
-		<div id="message">message</div>
+		<div id="message">speler blauw mag de eerste steen plaatsen</div>
 	</body>
 </html>
