@@ -12,27 +12,38 @@
 			
 			}
 			function lijstmaken(objectarray){
-				var productnamen= [];
-				var productnummers=[];
-				var productprijzen=[];
-				for (var i=0; i<objectarray.length; i++){
-					productnamen.push(" " + objectarray[i].naam );
-					productnummers.push(" " + objectarray[i].nummer );
-					productprijzen.push(" " + objectarray[i].prijs);
+				let table = document.createElement("table");
+				let tr = document.createElement("tr");
+				let td1 = document.createElement("td");
+				td1.innerHTML = "name";
+				tr.appendChild(td1);
+				let td2 = document.createElement("td");
+				td2.innerHTML = "number";
+				tr.appendChild(td2);
+				let td3 = document.createElement("td");
+				td3.innerHTML = "prize";
+				tr.appendChild(td3);
+				table.appendChild(tr);
+				for(let i = 0; i < objectarray.length; i++){
+					let tr = document.createElement("tr");
+					let td1 = document.createElement("td");
+					td1.innerHTML = objectarray[i].naam;
+					tr.appendChild(td1);
+					let td2 = document.createElement("td");
+					td2.innerHTML = objectarray[i].nummer;
+					tr.appendChild(td2);
+					let td3 = document.createElement("td");
+					td3.innerHTML = objectarray[i].prijs;
+					tr.appendChild(td3);
+					table.appendChild(tr);
 				}
-				document.getElementById('namenarray').innerHTML=productnamen;
-				document.getElementById('nummerarray').innerHTML=productnummers;
-				document.getElementById('prijzenarray').innerHTML=productprijzen;
+				document.getElementById("test").appendChild(table);
 			}
 		</script>
 	</head>
 	<body>
+		<h1>list of products</h1>
 		<input type=button onclick=getStorageItem() value="get list of items">
-		<h5>productnames:</h5>
-		<div id='namenarray'></div>
-		<h5>productnumbers:</h5>
-		<div id='nummerarray'></div>
-		<h5>product prizes:</h5>
-		<div id='prijzenarray'></div>
+		<div id="test"></div>
 	</body>
 </html>
