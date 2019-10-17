@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<style>
+		</style>
+		<script>
+			
+			function getStorageItem(){
+				var uitgelezen = localStorage.getItem('mijnkey');
+				var uObj =JSON.parse(uitgelezen);
+				console.log(uObj);
+				lijstmaken(uObj);
+			
+			}
+			function lijstmaken(objectarray){
+				var productnamen= [];
+				var productnummers=[];
+				var productprijzen=[];
+				for (var i=0; i<objectarray.length; i++){
+					productnamen.push(" " + objectarray[i].naam );
+					productnummers.push(" " + objectarray[i].nummer );
+					productprijzen.push(" " + objectarray[i].prijs);
+				}
+				document.getElementById('namenarray').innerHTML=productnamen;
+				document.getElementById('nummerarray').innerHTML=productnummers;
+				document.getElementById('prijzenarray').innerHTML=productprijzen;
+			}
+		</script>
+	</head>
+	<body>
+		<input type=button onclick=getStorageItem() value="get list of items">
+		<h5>productnames:</h5>
+		<div id='namenarray'></div>
+		<h5>productnumbers:</h5>
+		<div id='nummerarray'></div>
+		<h5>product prizes:</h5>
+		<div id='prijzenarray'></div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<style>
+		</style>
+		<script>
+			var lijst=[];
+			function opslaan(){
+				var name= document.getElementById('naam').value;
+				var number= document.getElementById('nummer').value;
+				var prize= document.getElementById('prijs').value;
+				var mijnObject = {};
+				mijnObject.naam = name;
+				mijnObject.nummer = number;
+				mijnObject.prijs = prize;
+				lijst.push(mijnObject);
+				console.log(lijst);
+				var moJSON= JSON.stringify(lijst);
+				localStorage.setItem('mijnkey',moJSON);
+			}
+		</script>
+	</head>
+	<body>
+	<h5>productname:</h5>	
+	<input type=text id='naam'>
+	<h5>productnumber:</h5>
+	<input type=text id='nummer'>
+	<h5>product prize:</h5>
+	<input type=text id='prijs'>
+	<input type=button onclick=opslaan() value="sla op">
+	</body>
+</html>
